@@ -1,5 +1,6 @@
 package com.example.helloWorld.controller;
 
+import model.User;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -22,9 +23,13 @@ public class HelloController{
 
     @GetMapping("/user/{id}")
     public String getUserById(@PathVariable int id){
-        return "User with ID " + id;
+        return "User with ID"  + id;
     }
 
-
+    @PostMapping("/user")
+    public User createUser(@RequestBody User user){
+        return user;
+        //returns JSON back
+    }
 
 }
