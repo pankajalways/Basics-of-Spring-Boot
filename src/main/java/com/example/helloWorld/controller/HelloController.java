@@ -20,5 +20,11 @@ public class HelloController{
         return "You said " + message + " !";
     }
 
+    @GetMapping("/user/{id}")
+    public String getUserById(@PathVariable int id){
+        return "User with ID " + id;
+    }
+
+
 
 }
