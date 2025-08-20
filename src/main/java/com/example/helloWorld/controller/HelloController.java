@@ -1,6 +1,8 @@
 package com.example.helloWorld.controller;
 
+import com.example.helloWorld.service.UserService;
 import model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -30,6 +32,14 @@ public class HelloController{
     public User createUser(@RequestBody User user){
         return user;
         //returns JSON back
+    }
+
+    @Autowired
+    private UserService userService;
+
+    @GetMapping("/welcome")
+    public String welcome(@RequestParam String name){
+        return userService.getGreeting(name);
     }
 
 }
